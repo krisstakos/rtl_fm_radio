@@ -6,6 +6,7 @@ A simple GUI front end player for rtl_fm and RTL SDR FM Streamer.
 
 Developed to be used on Raspbain with the official Rpi 7 inch touch screen in full screen mode, but should work with any Linux OS in a 800x480 window.
 
+![gui](gui.png?raw=true)
 ## Prerequisites
 
 ### RTL-SDR
