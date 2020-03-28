@@ -32,9 +32,13 @@ https://github.com/AlbrechtL/rtl_fm_streamer/
 
 rtl_fm will work without any additional installation but it’s mono only as far as I can tell.
  RTL SDR Streamer provides stereo and seems, to me, to have better sound quality.
+Couple options to set before make command if you have problems with the driver:
+```
+cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON
+```
 To install you’ll have to build and make it.
 ```
-	$ sudo apt-get install build-essential libusb-1.0-0-dev libev-dev
+	$ sudo apt-get install build-essential libusb-1.0-0-dev libev-dev cmake
 	$ git clone https://github.com/AlbrechtL/rtl_fm_streamer.git
 	$ cd rtl_fm_streamer/
 	rtl_fm_streamer$ mkdir build
@@ -54,5 +58,5 @@ You have to add your stations to this file manually. Read the comments, it’s e
 
 From the command line cd into the cloned directory and enter
 ```
-    sudo python3 player.py
+    sudo python3 rtl_sdr_player.py
 ```
