@@ -54,28 +54,29 @@ else:
     config.read(app_res_path('settings.ini'))
 
 use_server = config.getboolean('rtl_fm_streamer', 'rtl_fm_streamer')
-start_server = config.getboolean('rtl_fm_streamer', 'start server')
-host = config.get('rtl_fm_streamer', 'ip address')
-port = config.get('rtl_fm_streamer', 'server port')
-api_port = config.get('rtl_fm_streamer', 'server api port')
-use_rds = config.getboolean('rtl_fm', 'redsea rds')
+start_server = config.getboolean('rtl_fm_streamer', 'start_server')
+host = config.get('rtl_fm_streamer', 'ip_address')
+port = config.get('rtl_fm_streamer', 'server_port')
+api_port = config.get('rtl_fm_streamer', 'server_api_port')
+use_rds = config.getboolean('rtl_fm', 'redsea_rds')
+rtl_fm_streamer_command = 'rtl_fm_streamer -P %d &' % int(port)
 if use_server:
     play_string = (
         '%s http://%s:%s/freq/%s' % (
-            config.get('rtl_fm_streamer', 'player command'),
+            config.get('rtl_fm_streamer', 'player_command'),
             host, port,
             config.get('rtl_fm_streamer', 'stereo')))
 else:
     if use_rds:
         play_string = (
             'truncate -s0 rds_log_path;%s | redsea -u -e 2>> rds_log_path | %s' % (
-                config.get('rtl_fm', 'rtl_fm command'),
-                config.get('rtl_fm', 'player command')))
+                config.get('rtl_fm', 'rtl_fm_command'),
+                config.get('rtl_fm', 'player_command')))
     else:
         play_string = (
             ' %s | %s' % (
-                config.get('rtl_fm', 'rtl_fm command'),
-                config.get('rtl_fm', 'player command')))
+                config.get('rtl_fm', 'rtl_fm_command'),
+                config.get('rtl_fm', 'player_command')))
 
 
 stations = get_stations()
@@ -85,10 +86,10 @@ current_frequency = config['Session']['frequency']
 volume_down_command = 'xdotool key F7'
 volume_up_command = 'xdotool key F8'
 
-background_color = config.get('GUI', 'background color')
-font_color = config.get('GUI', 'text color')
-border_color = config.get('GUI', 'button border')
-button_color = config.get('GUI', 'button color')
+background_color = config.get('GUI', 'background_color')
+font_color = config.get('GUI', 'text_color')
+border_color = config.get('GUI', 'button_border')
+button_color = config.get('GUI', 'button_color')
 
 if button_color == 'black':
     icon_path = app_res_path('icons/white_icons/')

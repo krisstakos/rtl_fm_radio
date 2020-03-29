@@ -974,7 +974,7 @@ def main():
         + temp_directory + ');echo -n $tempfile',
         shell=True).decode('utf-8')
     if start_server:
-        subprocess.Popen(['rtl_fm_streamer', '-P', port])
+        subprocess.Popen(rtl_fm_streamer_command)
     global play_string
     if use_rds:
         play_string = play_string.replace('rds_log_path', rds_log_path)
