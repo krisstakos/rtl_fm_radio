@@ -329,6 +329,7 @@ class PlayerApp:
 
     def vol_up(self):
         """Turn up volume"""
+        print('vol up')
         cmd_list = self.cmds['vol_up_cmd'].split()
         subprocess.run(cmd_list)
 
@@ -759,9 +760,9 @@ class PlayerGUI:
                 'color': self.colors['btn_color'],
                 'bg': self.colors['bg_color'],
                 'image': self.imgs['vol_up_img'],
-                'release_command': self.app.vol_up,
+                'press_command': self.app.vol_up,
                 'repeatdelay': 200,
-                'repeatinterval': 300})
+                'repeatinterval': 500})
         self.widgets['vol_up_btn'].place(relx=0, rely=0.5, x=20, y=-74, anchor=tk.W)
 
         self.imgs['vol_unmuted_img'] = tk.PhotoImage(
@@ -787,9 +788,9 @@ class PlayerGUI:
                 'color': self.colors['btn_color'],
                 'bg': self.colors['bg_color'],
                 'image': self.imgs['vol_down_img'],
-                'release_command': self.app.vol_down,
+                'press_command': self.app.vol_down,
                 'repeatdelay': 200,
-                'repeatinterval': 300})
+                'repeatinterval': 500})
         self.widgets['vol_down_btn'].place(relx=0, rely=0.5, x=20, y=74, anchor=tk.W)
 
         self.imgs['prev_img'] = tk.PhotoImage(
