@@ -27,7 +27,11 @@ For now we’re using Pythons keyboard module to control the volume. Because of 
 ```
      sudo pip3 install keyboard
 ```
-
+### Readsea installing
+You can see the instuctions here:
+```
+https://github.com/windytan/redsea
+```
 ### RTL SDR FM Streamer
 https://github.com/AlbrechtL/rtl_fm_streamer/
 
